@@ -1,17 +1,14 @@
 
-export const getCat = (url, updateImage, setIsLoading) => {
-    setIsLoading(true)
-    fetch(url)
-    .then(res => {
+export const getCat = async (url) => {
+    try {
+        const res = await fetch(url);
         if (!res.ok) {
-            throw new Error('Network response was not ok ' + res.statusText)           
+            throw new Error('Network response was not ok ' + res.statusText);
         }
-        return res.blob();
-    })
-    .then(blob => {
-        const imgUrl = URL.createObjectURL(blob)
-        updateImage(imgUrl)
-        setIsLoading(false)
-    })
-    .catch(error => console.error('error fetching', error))
+        const blob = await res.blob();
+        return URL.createObjectURL(blob);
+    } catch (error) {
+        console.error('Error fetching:', error);
+    }
 }
+

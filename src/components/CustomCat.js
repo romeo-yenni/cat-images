@@ -1,13 +1,11 @@
-import { useState } from "react";
-import { getCat } from "../Utils";
 import { TextField, Button } from "@mui/material"
 
-const CustomCat = ({ updateImage, setIsLoading }) => {
-  const [custom, setCustom] = useState({
-    text: '',
-    size: '',
-    color: ''
-  });
+const CustomCat = ({ handleCustomCat, setCustom, custom }) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleCustomCat()
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,12 +13,6 @@ const CustomCat = ({ updateImage, setIsLoading }) => {
       ...custom,
       [name]: value
     });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const url = `https://cataas.com/cat/says/${custom.text}?font=Impact&fontSize=${custom.size}&fontColor=${custom.color}`
-    getCat(url, updateImage, setIsLoading);
   };
 
   return (

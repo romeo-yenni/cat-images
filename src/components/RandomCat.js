@@ -1,12 +1,11 @@
 import React from 'react';
-import { getCat } from '../Utils';
 import { Button } from '@mui/material';
 
-const RandomCat = ({ updateImage, setIsLoading }) => {
+const RandomCat = ({ handleRandomCat }) => {
 
     return (
         <Button 
-            onClick={() => getCat('https://cataas.com/cat', updateImage, setIsLoading)} 
+            onClick={handleRandomCat}
             variant="contained" 
             color="primary">
                 RANDOM CAT
