@@ -1,10 +1,10 @@
 import { TextField, Button } from "@mui/material"
 
-const CustomCat = ({ handleCustomCat, setCustom, custom }) => {
+const CustomCat = ({ handleNewCat, setCustom, custom }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleCustomCat()
+    handleNewCat()
   };
 
   const handleChange = (e) => {

@@ -18,10 +18,7 @@ const Canvas = ({ url }) => {
                 error ?
                     <p>error getting image</p>
                     :        
-                    data ?
-                        isLoading || isFetching ? <CircularProgress/> : <img src={data} alt='cat'></img>
-                        :
-                        isLoading || isFetching ? <CircularProgress/> : <p>get a cat </p>
+                    isLoading || isFetching ? <CircularProgress/> : <img src={data} alt='cat'></img>
             }
         </div>
     );

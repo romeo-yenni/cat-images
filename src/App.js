@@ -7,9 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const client = new QueryClient();
 
-
 function App() {
-  
   
   const [custom, setCustom] = useState({
     text: '',
@@ -22,16 +20,11 @@ function App() {
     CUSTOM: `https://cataas.com/cat/says/${custom.text}?font=Impact&fontSize=${custom.size}&fontColor=${custom.color}`
   }
     
-    const [url, setUrl] = useState(URLS.RANDOM)
+  const [url, setUrl] = useState(URLS.RANDOM)
       
-  const handleRandomCat = () => {
-    setUrl(URLS.RANDOM);
-    client.invalidateQueries(['cat', URLS.RANDOM]);
-  };
-
-  const handleCustomCat = () => {
-    setUrl(URLS.CUSTOM);
-    client.invalidateQueries(['cat', URLS.CUSTOM]);
+  const handleNewCat = (url) => {
+    setUrl(url);
+    client.invalidateQueries(['cat', url]);
   };
 
   return (
@@ -39,8 +32,8 @@ function App() {
       <div className='container'>
           <Canvas url={url} />
           <div className='button-container'>
-            <RandomCat handleRandomCat={handleRandomCat} />
-            <CustomCat handleCustomCat={handleCustomCat} setCustom={setCustom} custom={custom} />
+            <RandomCat handleNewCat={ () => handleNewCat(URLS.RANDOM) } />
+            <CustomCat handleNewCat={ () => handleNewCat(URLS.CUSTOM) } setCustom={setCustom} custom={custom} />
           </div>
       </div>
     </QueryClientProvider>

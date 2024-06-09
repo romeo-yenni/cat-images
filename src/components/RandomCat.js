@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-const RandomCat = ({ handleRandomCat }) => {
+const RandomCat = ({ handleNewCat }) => {
 
     return (
         <Button 
-            onClick={handleRandomCat}
+            onClick={handleNewCat}
             variant="contained" 
             color="primary">
                 RANDOM CAT
