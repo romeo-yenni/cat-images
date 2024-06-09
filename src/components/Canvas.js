@@ -1,15 +1,15 @@
 import React from 'react';
-import './Canvas.css';
-import Loading from './Loading';
+import { CircularProgress } from '@mui/material'
+import './Canvas.css'
 
 const Canvas = ({ image, isLoading }) => {
     return (
-        <div>
+        <div className='canvas-container'>
             {
                 image ?
-                    isLoading ? <Loading /> : <img src={image} alt='cat'></img>
+                    isLoading ? <CircularProgress/> : <img src={image} alt='cat'></img>
                     :
-                    isLoading ? <Loading /> : <p>get a cat </p>
+                    isLoading ? <CircularProgress/> : <p>get a cat </p>
             }
         </div>
     );

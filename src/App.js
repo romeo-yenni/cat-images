@@ -11,11 +11,13 @@ function App() {
 
   console.log(isLoading)
   return (
-    <>
+    <div className='container'>
         <Canvas image={cat} isLoading={isLoading} />
-        <RandomCat updateImage={setCat} setIsLoading={setIsLoading}/>
-        <CustomCat updateImage={setCat} setIsLoading={setIsLoading}/>
-    </>
+        <div className='button-container'>
+          <RandomCat updateImage={setCat} setIsLoading={setIsLoading}/>
+          <CustomCat updateImage={setCat} setIsLoading={setIsLoading}/>
+        </div>
+    </div>
   );
 }
 

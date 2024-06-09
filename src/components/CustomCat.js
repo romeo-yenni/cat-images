@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getCat } from "../Utils";
+import { TextField, Button } from "@mui/material"
 
 const CustomCat = ({ updateImage, setIsLoading }) => {
   const [custom, setCustom] = useState({
@@ -24,34 +25,37 @@ const CustomCat = ({ updateImage, setIsLoading }) => {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: 'column' }}>
-      <label>
-        Custom Text:
-        <input 
-          type="text" 
-          name="text" 
-          value={custom.text || ""} 
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Font Size:
-        <input 
-          type="number" 
-          name="size" 
-          value={custom.size || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Font Colour:
-        <input 
-          type="text" 
-          name="color" 
-          value={custom.color || ""} 
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" />
+      <TextField
+        label="Custom Text"
+        type="text"
+        name="text"
+        value={custom.text}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        required
+      />
+      <TextField
+        label="Font Size"
+        type="number"
+        name="size"
+        value={custom.size}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        required
+      />
+      <TextField
+        label="Font Colour"
+        type="text"
+        name="color"
+        value={custom.color}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        required
+      />
+      <Button type="submit" variant="contained" color="primary">Submit</Button>
     </form>
   );
 };

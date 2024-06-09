@@ -1,5 +1,12 @@
-img {
-    height: 500px;
-    width: 500px;
-    border-radius: 10px;
+.canvas-container {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.canvas-container img {
+    height: 100%;
+    border-radius: 5%;
 }
