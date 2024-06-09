@@ -9,7 +9,7 @@ const Canvas = ({ image, isLoading }) => {
                 image ?
                     isLoading ? <Loading /> : <img src={image} alt='cat'></img>
                     :
-                    <p>get a cat </p>
+                    isLoading ? <Loading /> : <p>get a cat </p>
             }
         </div>
     );
